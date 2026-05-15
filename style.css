@@ -1,0 +1,249 @@
+:root {
+    --primary-blue: #1a73e8;
+    --primary-hover: #1557b0;
+    --text-main: #3c4043;
+    --text-light: #70757a;
+    --border-color: #dadce0;
+    --bg-light: #f8f9fa;
+    --error-red: #d93025;
+    --holiday-green: #0f9d58;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-main);
+    background-color: #fff;
+    line-height: 1.5;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.logo span {
+    color: var(--text-light);
+    margin-left: 5px;
+}
+
+.status-badge {
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    background: var(--bg-light);
+    border-radius: 20px;
+    color: var(--text-light);
+}
+
+/* Layout */
+.app-container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.sidebar {
+    width: 280px;
+    padding: 1.5rem;
+    border-right: 1px solid var(--border-color);
+}
+
+.content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 24px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn-secondary {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Lista de Eventos */
+.event-list {
+    margin-top: 1.5rem;
+    max-width: 800px;
+}
+
+.event-card {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.1s;
+}
+
+.event-card:hover {
+    background-color: var(--bg-light);
+}
+
+.event-card.holiday {
+    border-left: 4px solid var(--holiday-green);
+}
+
+.event-card.user-event {
+    border-left: 4px solid var(--primary-blue);
+}
+
+.event-info {
+    flex-grow: 1;
+    margin-left: 1rem;
+}
+
+.event-title {
+    font-weight: 500;
+}
+
+.event-date {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.badge-holiday { background: #e6f4ea; color: var(--holiday-green); }
+.badge-user { background: #e8f0fe; color: var(--primary-blue); }
+
+.btn-delete {
+    color: var(--text-light);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+}
+
+.btn-delete:hover { color: var(--error-red); }
+
+/* Modales y Formularios */
+.overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden { display: none; }
+
+.modal {
+    background: white;
+    width: 450px;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 24px 38px rgba(0,0,0,0.14);
+}
+
+.form-group { margin-bottom: 1.25rem; }
+.form-row { display: flex; gap: 1rem; }
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    color: var(--text-light);
+}
+
+input {
+    width: 100%;
+    padding: 8px 0;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    outline: none;
+    font-size: 1rem;
+}
+
+input:focus { border-bottom: 2px solid var(--primary-blue); }
+
+.error-text {
+    color: var(--error-red);
+    font-size: 0.75rem;
+    height: 1rem;
+    display: block;
+    margin-top: 4px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.weather-widget {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.weather-city {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--text-light);
+    text-transform: uppercase;
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+#weather-icon { font-size: 1.5rem; }
+#weather-temp { font-size: 1.25rem; font-weight: 500; }
+
+.weather-desc {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    text-transform: capitalize;
+}

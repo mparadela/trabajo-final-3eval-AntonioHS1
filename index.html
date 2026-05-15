@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Agenda Profesional</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo">Calendario<span>Festivos</span></div>
+    <div id="api-status" class="status-badge">Conectando con API...</div>
+</header>
+
+<div class="app-container">
+    <aside class="sidebar">
+        <button id="btn-open-modal" class="btn-primary">
+            <span class="icon">+</span> Crear evento
+        </button>
+        <div id="weather-widget" class="weather-widget">
+            <p class="weather-city">Zaragoza, ES</p>
+            <div class="weather-main">
+                <span id="weather-icon">--</span>
+                <span id="weather-temp">--°C</span>
+            </div>
+            <p id="weather-desc" class="weather-desc">Cargando clima...</p>
+        </div>
+        <div class="info-box">
+            <p>Festivos de España 2025 cargados automáticamente.</p>
+        </div>
+    </aside>
+
+    <main class="content">
+        <section class="agenda-view">
+            <h2>Próximos eventos</h2>
+            <div id="event-list" class="event-list">
+                <p class="empty-msg">No hay eventos programados.</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<div id="modal-overlay" class="overlay hidden">
+    <div class="modal">
+        <header class="modal-header">
+            <h3>Nuevo evento</h3>
+            <button id="btn-close-modal" class="btn-close">&times;</button>
+        </header>
+        <form id="event-form" novalidate>
+            <div class="form-group">
+                <label for="title">Título del evento</label>
+                <input type="text" id="title" placeholder="Ej. Reunión de equipo">
+                <span id="error-title" class="error-text"></span>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Fecha</label>
+                    <input type="date" id="date">
+                    <span id="error-date" class="error-text"></span>
+                </div>
+                <div class="form-group">
+                    <label for="time">Hora</label>
+                    <input type="time" id="time">
+                    <span id="error-time" class="error-text"></span>
+                </div>
+            </div>
+
+            <footer class="modal-footer">
+                <button type="button" id="btn-cancel" class="btn-secondary">Cancelar</button>
+                <button type="submit" class="btn-primary">Guardar evento</button>
+            </footer>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
